@@ -6,22 +6,6 @@ Proyek ini berisi simulasi robot mobile diferensial menggunakan **ROS 2 Jazzy**,
 
 Arena, waypoint, model robot, dan konfigurasi visualisasi disertakan agar proyek dapat diunduh dan dipelajari oleh anggota tim. Gambar contoh hasil kamera tersedia di `captured_images/`.
 
-## Arsitektur
-
-```mermaid
-flowchart LR
-    A["generate_arena.py<br/>layout sumber"] --> B["worlds/arena.world<br/>config/arena_layout.json"]
-    B --> C["Gazebo Sim<br/>fisika, robot, sensor kamera"]
-    C <--> D["ros_gz_bridge"]
-    D -->|"/odom, /tf, /camera/image_raw"| E["auto_nav.py<br/>Pure Pursuit + safety"]
-    E -->|"/cmd_vel"| D
-    E -->|"/nav/active_waypoint"| F["camera_capture.py"]
-    D -->|"/camera/image_raw"| F
-    F -->|"/camera/detections/image_raw"| G["rqt_image_view"]
-    F -->|PNG + JSON"| H["captured_images/"]
-    D --> I["RViz2<br/>robot, TF, arena, waypoint"]
-```
-
 ### Alur dan topik utama
 
 - `generate_arena.py` adalah sumber koordinat arena. Script ini membuat `worlds/arena.world` dan `config/arena_layout.json`.
