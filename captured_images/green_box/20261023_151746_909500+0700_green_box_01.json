@@ -1,0 +1,27 @@
+{
+  "object": "box_capture_green",
+  "color": "green",
+  "image": "20261023_151746_909500+0700_green_box_01.png",
+  "captured_at_local": "2026-10-23T15:17:46.909500+07:00",
+  "camera_topic": "/camera/image_raw",
+  "camera_stamp_sec": 689,
+  "camera_stamp_nanosec": 833000000,
+  "capture_waypoint": "track_20",
+  "robot_frame": "base_footprint",
+  "global_frame": "world",
+  "robot_pose": {
+    "x": 0.5920519705086602,
+    "y": 0.9310779610223706,
+    "yaw_rad": -0.9372237168638453,
+    "yaw_deg": -53.698963435862375
+  },
+  "detection": {
+    "bounding_box_xywh": [
+      116,
+      96,
+      166,
+      104
+    ],
+    "contour_area_px": 14750.0
+  }
+}

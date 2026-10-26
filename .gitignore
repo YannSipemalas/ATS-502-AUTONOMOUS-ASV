@@ -1,0 +1,14 @@
+# Python-generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Generated URDF contains a machine-specific absolute mesh path
+/urdf/robot_resolved.urdf
+
+# Local environments, logs, and OS metadata
+.venv/
+venv/
+*.log
+.DS_Store
+Thumbs.db

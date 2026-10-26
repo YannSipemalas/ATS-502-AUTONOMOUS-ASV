@@ -1,0 +1,149 @@
+<?xml version="1.0" ?>
+<!-- AUTO-GENERATED oleh generate_arena.py. Arena 4.5 x 4.5 m
+     untuk robot 17 x 16 cm. Origin = pojok kiri bawah. -->
+<sdf version="1.9">
+  <world name="arena_scaled">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
+    <scene>
+      <ambient>0.6 0.6 0.6 1</ambient>
+      <background>0.2 0.2 0.25 1</background>
+      <shadows>false</shadows>
+    </scene>
+    <light type="directional" name="sun">
+      <cast_shadows>false</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.9 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.3 0.2 -1</direction>
+    </light>
+
+    <!-- LANTAI -->
+
+    <gui fullscreen="0">
+      <plugin filename="MinimalScene" name="3D View">
+        <gz-gui><title>3D View</title><property type="bool" key="showTitleBar">false</property><property type="string" key="state">docked</property></gz-gui>
+        <engine>ogre2</engine>
+        <scene>scene</scene>
+        <ambient_light>0.4 0.4 0.4</ambient_light>
+        <background_color>0.8 0.8 0.8</background_color>
+        <camera_pose>2.25 -3.5 5.5 0 0.9 1.5708</camera_pose>
+        <camera_clip><near>0.01</near><far>100</far></camera_clip>
+      </plugin>
+      <plugin filename="GzSceneManager" name="Scene Manager">
+        <gz-gui><property key="resizable" type="bool">false</property><property key="width" type="double">5</property><property key="height" type="double">5</property><property key="state" type="string">floating</property><property key="showTitleBar" type="bool">false</property></gz-gui>
+      </plugin>
+      <plugin filename="InteractiveViewControl" name="Interactive view control">
+        <gz-gui><property key="resizable" type="bool">false</property><property key="width" type="double">5</property><property key="height" type="double">5</property><property key="state" type="string">floating</property><property key="showTitleBar" type="bool">false</property></gz-gui>
+      </plugin>
+      <plugin filename="CameraTracking" name="Camera Tracking">
+        <gz-gui><property key="resizable" type="bool">false</property><property key="width" type="double">5</property><property key="height" type="double">5</property><property key="state" type="string">floating</property><property key="showTitleBar" type="bool">false</property></gz-gui>
+      </plugin>
+      <plugin filename="WorldControl" name="World control">
+        <gz-gui><title>World control</title><property type="bool" key="showTitleBar">false</property><property type="bool" key="resizable">false</property><property type="double" key="height">72</property><property type="string" key="state">floating</property><property type="double" key="width">121</property><property type="double" key="z">1</property><property type="double" key="x">0</property><property type="double" key="y">0</property></gz-gui>
+        <play_pause>true</play_pause><step>true</step><start_paused>true</start_paused>
+      </plugin>
+      <plugin filename="WorldStats" name="World stats">
+        <gz-gui><title>World stats</title><property type="bool" key="showTitleBar">false</property><property type="bool" key="resizable">false</property><property type="double" key="height">110</property><property type="double" key="width">290</property><property type="string" key="state">floating</property><property type="double" key="z">1</property><property type="double" key="x">0</property><property type="double" key="y">62</property></gz-gui>
+        <sim_time>true</sim_time><real_time>true</real_time><real_time_factor>true</real_time_factor><iterations>true</iterations>
+      </plugin>
+      <plugin filename="EntityTree" name="Entity tree">
+        <gz-gui/>
+      </plugin>
+    </gui>
+    <model name="ground_plane_arena"><static>true</static><link name="link"><pose>2.2500 2.2500 -0.00500000 0 0 0</pose>
+      <collision name="c"><geometry><box><size>4.5 4.5 0.01</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>4.5 4.5 0.01</size></box></geometry><material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material></visual></link></model>
+
+    <!-- ZONA KOTAK -->
+    <model name="box_start_finish"><static>true</static><link name="link"><pose>3.9000 0.7040 0.00002500 0 0 0</pose>
+      <collision name="c"><geometry><box><size>0.25 0.03 5e-05</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.25 0.03 5e-05</size></box></geometry><material><ambient>1 0 0 1</ambient><diffuse>1 0 0 1</diffuse></material></visual></link></model>
+    <model name="box_capture_blue"><static>true</static><link name="link"><pose>0.8295 1.0565 0.07500000 0 0 0</pose>
+      <collision name="c"><geometry><box><size>0.2 0.2 0.15</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.2 0.2 0.15</size></box></geometry><material><ambient>0 0.4 1 1</ambient><diffuse>0 0.4 1 1</diffuse></material></visual></link></model>
+    <model name="box_capture_green"><static>true</static><link name="link"><pose>1.1970 0.3455 0.07500000 0 0 0</pose>
+      <collision name="c"><geometry><box><size>0.2 0.2 0.15</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.2 0.2 0.15</size></box></geometry><material><ambient>0 0.8 0 1</ambient><diffuse>0 0.8 0 1</diffuse></material></visual></link></model>
+
+    <!-- BOLA HIJAU (luar lintasan) -->
+    <model name="ball_green_top_1"><static>true</static><link name="link"><pose>1.9100 3.8000 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>0 1 0 1</ambient><diffuse>0 1 0 1</diffuse></material></visual></link></model>
+    <model name="ball_green_top_2"><static>true</static><link name="link"><pose>2.1860 3.8000 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>0 1 0 1</ambient><diffuse>0 1 0 1</diffuse></material></visual></link></model>
+    <model name="ball_green_top_3"><static>true</static><link name="link"><pose>2.4670 3.8000 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>0 1 0 1</ambient><diffuse>0 1 0 1</diffuse></material></visual></link></model>
+    <model name="ball_green_top_4"><static>true</static><link name="link"><pose>2.7370 3.8000 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>0 1 0 1</ambient><diffuse>0 1 0 1</diffuse></material></visual></link></model>
+    <model name="ball_green_left_1"><static>true</static><link name="link"><pose>0.3552 2.7874 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>0 1 0 1</ambient><diffuse>0 1 0 1</diffuse></material></visual></link></model>
+    <model name="ball_green_left_2"><static>true</static><link name="link"><pose>0.1248 2.2563 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>0 1 0 1</ambient><diffuse>0 1 0 1</diffuse></material></visual></link></model>
+    <model name="ball_green_left_3"><static>true</static><link name="link"><pose>0.1034 1.7269 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>0 1 0 1</ambient><diffuse>0 1 0 1</diffuse></material></visual></link></model>
+    <model name="ball_green_right_1"><static>true</static><link name="link"><pose>4.1890 2.2967 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>0 1 0 1</ambient><diffuse>0 1 0 1</diffuse></material></visual></link></model>
+    <model name="ball_green_right_2"><static>true</static><link name="link"><pose>4.0145 1.9410 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>0 1 0 1</ambient><diffuse>0 1 0 1</diffuse></material></visual></link></model>
+    <model name="ball_green_right_3"><static>true</static><link name="link"><pose>4.1577 1.4295 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>0 1 0 1</ambient><diffuse>0 1 0 1</diffuse></material></visual></link></model>
+
+    <!-- BOLA MERAH (dalam lintasan) -->
+    <model name="ball_red_top_1"><static>true</static><link name="link"><pose>1.9100 3.1000 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>1 0 0 1</ambient><diffuse>1 0 0 1</diffuse></material></visual></link></model>
+    <model name="ball_red_top_2"><static>true</static><link name="link"><pose>2.1860 3.1000 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>1 0 0 1</ambient><diffuse>1 0 0 1</diffuse></material></visual></link></model>
+    <model name="ball_red_top_3"><static>true</static><link name="link"><pose>2.4670 3.1000 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>1 0 0 1</ambient><diffuse>1 0 0 1</diffuse></material></visual></link></model>
+    <model name="ball_red_top_4"><static>true</static><link name="link"><pose>2.7370 3.1000 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>1 0 0 1</ambient><diffuse>1 0 0 1</diffuse></material></visual></link></model>
+    <model name="ball_red_left_1"><static>true</static><link name="link"><pose>1.0468 2.6796 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>1 0 0 1</ambient><diffuse>1 0 0 1</diffuse></material></visual></link></model>
+    <model name="ball_red_left_2"><static>true</static><link name="link"><pose>0.8242 2.2257 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>1 0 0 1</ambient><diffuse>1 0 0 1</diffuse></material></visual></link></model>
+    <model name="ball_red_left_3"><static>true</static><link name="link"><pose>0.7966 1.8241 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>1 0 0 1</ambient><diffuse>1 0 0 1</diffuse></material></visual></link></model>
+    <model name="ball_red_right_1"><static>true</static><link name="link"><pose>3.5070 2.4543 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>1 0 0 1</ambient><diffuse>1 0 0 1</diffuse></material></visual></link></model>
+    <model name="ball_red_right_2"><static>true</static><link name="link"><pose>3.3145 1.9410 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>1 0 0 1</ambient><diffuse>1 0 0 1</diffuse></material></visual></link></model>
+    <model name="ball_red_right_3"><static>true</static><link name="link"><pose>3.4583 1.4605 0.02 0 0 0</pose>
+      <collision name="c"><geometry><sphere><radius>0.02</radius></sphere></geometry></collision>
+      <visual name="v"><geometry><sphere><radius>0.02</radius></sphere></geometry><material><ambient>1 0 0 1</ambient><diffuse>1 0 0 1</diffuse></material></visual></link></model>
+
+    <!-- ROBOT -->
+    <include>
+      <uri>model://robot</uri>
+      <name>robot</name>
+      <pose>3.9000 0.3040 0.002 0 0 1.5708</pose>
+    </include>
+  </world>
+</sdf>
