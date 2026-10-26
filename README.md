@@ -35,6 +35,14 @@ flowchart LR
 - Satu foto dapat disimpan pada setiap waypoint foto, sehingga maksimal dua foto per warna dalam satu perjalanan rute. Gambar dan metadata disimpan di `captured_images/`.
 - Safety controller navigasi memeriksa bola statis yang tercantum di layout. Sistem ini bukan detektor rintangan umum untuk objek tak dikenal atau bergerak.
 
+### Model robot dan path aset
+
+- `models/robot/model.sdf` adalah model fisika yang dipakai Gazebo. Model ini memuat visual badan dari mesh, collision badan yang disederhanakan, dua roda dengan collision dan joint, caster depan, kamera, IMU, plugin differential-drive, dan publisher joint state.
+- Mesh `robot_body.stl` dan `robot_body_cad.stl` disertakan di repository. Gazebo memakai URI `model://robot/meshes/robot_body.stl`; `run_sim.sh` menambahkan folder `models/` pada `GZ_SIM_RESOURCE_PATH`, jadi URI tersebut tetap relatif terhadap hasil clone.
+- `urdf/robot.urdf` adalah deskripsi visual untuk `robot_state_publisher` dan RViz2. Mesh robot yang sama ikut diunggah. Saat `run_rviz.sh` dijalankan, launcher mengganti token `@ROOT@` dengan lokasi checkout dan membuat `urdf/robot_resolved.urdf`; anggota tim tidak perlu mengedit path secara manual.
+- Collision dan fisika simulasi Gazebo didefinisikan di SDF. URDF dipakai untuk visualisasi dan TF di RViz2.
+- Proyek ini memakai URDF biasa, bukan Xacro. Launcher-nya adalah script shell di root (`run_sim.sh`, `run_rviz.sh`, `run_camera.sh`, `run_nav.sh`); proyek tidak memiliki direktori ROS `launch/`.
+
 ## Struktur folder
 
 ```text

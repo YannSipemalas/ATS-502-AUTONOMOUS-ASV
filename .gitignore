@@ -3,6 +3,11 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 
+# ROS workspace build output
+/build/
+/install/
+/log/
+
 # Generated URDF contains a machine-specific absolute mesh path
 /urdf/robot_resolved.urdf
 
@@ -10,5 +15,6 @@ __pycache__/
 .venv/
 venv/
 *.log
+*.db
 .DS_Store
 Thumbs.db
